@@ -1,9 +1,9 @@
-Example of C++ project skeleton with Meson Build and Catch Edit. 
+Example of C++ project skeleton with Meson Build and Catch. 
 
 This project consists of:
-- a library (lets name it `luuid`)
+- a library (let's name it `luuid`)
 - an executable `uuidgen` using that `luuid`
-- unit test executable testing `luuid` and using Catch framework 
+- unit test executable for `luuid` and using Catch framework 
 
 This project was created as learning example for article: [Choosing C++ stack](https://carlosvin.github.io/posts/choosing-modern-cpp-stack)
 
@@ -43,7 +43,7 @@ In specific directory, e.g: ./install
 ```bash
 DESTDIR=./install ninja install
 ```
-Runnig `uuidgen` is a little bit more difficult because install dir might not belong to library path. 
+Running `uuidgen` is a little bit more difficult in this case because the installation directory might not belong to library path (`LD_LIBRARY_PATH`). 
 
 ```bash
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./install/usr/local/lib
