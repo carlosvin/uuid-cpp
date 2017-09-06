@@ -9,10 +9,10 @@
 #include "catch.hpp"
 #include <string>
 
-constexpr int MAX_ITERS = 1000;
+constexpr int MAX_ITERS = 100;
 
 TEST_CASE( "Uuid", "[uuid]" ) {
-  for (int i=0; i<MAX_ITERS; i++){
+  for (int i=0; i<MAX_ITERS; i++) {
     ids::Uuid uuid;
     std::string uuid_str {uuid.to_str()};
 
@@ -21,28 +21,23 @@ TEST_CASE( "Uuid", "[uuid]" ) {
     REQUIRE(uuid.least > 0);
     REQUIRE(uuid_str.size() == 36);
   }
-
 }
 
-/*
+// BDD style
+
 SCENARIO( "UUID creation", "[Uuid]" ) {
+  
+  ids::Uuid uuid;
+  std::string uuid_str {uuid.to_str()};
 
-    for (int i=0; i<MAX_ITERS; i++){
-      ddd::Uuid uuid;
-      std::string uuid_str {uuid.to_str()};
+  GIVEN( "A random UUID " + uuid_str) {
+    REQUIRE(uuid_str.size() == 36);
 
-      GIVEN( "A random UUID " + uuid_str) {
-    	REQUIRE(uuid_str.size() == 36);
-
-	WHEN( "get the most and least" ) {
-		THEN( "should be more than 0" ) {
-			REQUIRE( uuid.most > 0);
-			REQUIRE( uuid.least > 0);
-
-		}
-	}
-
-      }
-    }
-}*/
-
+	  WHEN( "get the most and least" ) {
+		  THEN( "should be more than 0" ) {
+			  REQUIRE( uuid.most > 0);
+			  REQUIRE( uuid.least > 0);
+		  }
+	  }
+  }  
+}
