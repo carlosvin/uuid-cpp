@@ -13,7 +13,7 @@ Catch vs Doctest (2 branches)
 Both test frameworks are quite similar, you can check differencies here: https://github.com/onqtam/doctest/blob/master/doc/markdown/faq.md#how-is-doctest-different-from-catch
 
 I've created project using both frameworks you can find them in corresponding branches: [doctest branch](https://github.com/carlosvin/uuid-cpp/tree/doctest)
- and [catch](https://github.com/carlosvin/uuid-cpp/tree/catch). 
+ and [catch branch](https://github.com/carlosvin/uuid-cpp/tree/catch). 
 
 For now I will merge doctest branch to master, both are quite similar, but doctest is supposed to be lighter and faster. 
 
