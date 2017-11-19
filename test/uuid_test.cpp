@@ -17,9 +17,9 @@ TEST_CASE( "Uuid", "[uuid]" ) {
     std::string uuid_str {uuid.to_str()};
 
     INFO(uuid_str);
-    REQUIRE(uuid.most > 0);
-    REQUIRE(uuid.least > 0);
     REQUIRE(uuid_str.size() == 36);
+    CHECK(uuid.most > 0);
+    CHECK(uuid.least > 0);
   }
 }
 
@@ -35,8 +35,8 @@ SCENARIO( "UUID creation", "[Uuid]" ) {
 
 	  WHEN( "get the most and least" ) {
 		  THEN( "should be more than 0" ) {
-			  REQUIRE( uuid.most > 0);
-			  REQUIRE( uuid.least > 0);
+			  CHECK( uuid.most > 0);
+			  CHECK( uuid.least > 0);
 		  }
 	  }
   }  
