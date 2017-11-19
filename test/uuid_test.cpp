@@ -6,34 +6,44 @@
 
 constexpr int MAX_ITERS = 100;
 
-TEST_CASE( "Uuid" ) {
-  for (int i=0; i<MAX_ITERS; i++) {
+TEST_CASE("Uuid")
+{
+  for (int i = 0; i < MAX_ITERS; i++)
+  {
     ids::Uuid uuid;
-    std::string uuid_str {uuid.to_str()};
+    std::string uuid_str{uuid.to_str()};
 
-    MESSAGE(uuid_str);
+    INFO(uuid_str);
+
+    // If assertion fails test execution is stopped
     REQUIRE(uuid_str.size() == 36);
+
+    // If assertion fails test execution continues
     CHECK(uuid.most > 0);
     CHECK(uuid.least > 0);
   }
 }
-// SECTION in catch = SUBCASE in doctest
 
 // BDD style
 
-SCENARIO( "UUID creation" ) {
+SCENARIO("UUID creation")
+{
 
-  GIVEN( "A random UUID " ) {
+  GIVEN("A random UUID ")
+  {
+
     ids::Uuid uuid;
-    std::string uuid_str {uuid.to_str()};
+    std::string uuid_str{uuid.to_str()};
 
     REQUIRE(uuid_str.size() == 36);
 
-	  WHEN( "get the most and least" ) {
-		  THEN( "should be more than 0" ) {
-			  CHECK( uuid.most > 0);
-			  CHECK( uuid.least > 0);
-		  }
-	  }
-  }  
+    WHEN("get the most and least")
+    {
+      THEN("should be more than 0")
+      {
+        CHECK(uuid.most > 0);
+        CHECK(uuid.least > 0);
+      }
+    }
+  }
 }
