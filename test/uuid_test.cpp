@@ -12,9 +12,9 @@ TEST_CASE( "Uuid" ) {
     std::string uuid_str {uuid.to_str()};
 
     MESSAGE(uuid_str);
+    REQUIRE(uuid_str.size() == 36);
     CHECK(uuid.most > 0);
     CHECK(uuid.least > 0);
-    CHECK(uuid_str.size() == 36);
   }
 }
 // SECTION in catch = SUBCASE in doctest
@@ -27,7 +27,7 @@ SCENARIO( "UUID creation" ) {
     ids::Uuid uuid;
     std::string uuid_str {uuid.to_str()};
 
-    CHECK(uuid_str.size() == 36);
+    REQUIRE(uuid_str.size() == 36);
 
 	  WHEN( "get the most and least" ) {
 		  THEN( "should be more than 0" ) {
